@@ -1,15 +1,24 @@
 # dartdocOptions.yaml
 dartdoc:
+  categories:
+    "Main Page":
+      markdown: doc/Main.md
+      name: Main
+    "Component":
+      markdown: doc/Components.md
+      name: Components
+  categoryOrder: ["Main Page", "Component"]
+
   input: lib/
   output: doc/
   exclude:
     - test/
     - example/
   showInheritedMembers: true
-  useCategories: true
-  header: ['my_header.md','my_header2.md']
+  header: [ 'doc/my_header.md' ]
   assert:
     - doc/image.png
   dartdocResources:
     - doc/images/my_image.png
     - doc/image.png
+  showUndocumentedCategories: true
