@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'component/qing_component.dart';
+
 void main() {
   runApp(const MyApp());
 }
 
+/// App入口
+/// <img src="../../images/my_image.png" alt="Example image" width="200px" />
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -106,7 +110,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          showDialog(context: context, builder: (context) {
+            return const QingDialog();
+          },);
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

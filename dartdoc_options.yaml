@@ -1,25 +1,15 @@
+# dartdocOptions.yaml
 dartdoc:
-#  categories:
-#    "First Category":
-#      markdown: doc/First.md
-#      name: Awesome
-#    "Second Category":
-#      markdown: doc/Second.md
-#      name: Great
-#  categoryOrder: ["First Category", "Second Category"]
-#  examplePathPrefix: 'subdir/with/examples'
-#  includeExternal: [ 'bin/unusually_located_library.dart' ]
-#  include: ['vip'] //生成相应library的doc
-  #  nodoc: ['lib/sekret/*.dart']
-#  linkTo:
-#    url: "https://my.dartdocumentationsite.org/dev/%v%"
-  linkToSource:
-    uriTemplate:
-
-  showUndocumentedCategories: true
-  ignore:
-    - ambiguous-doc-reference
-  errors:
-    - unresolved-doc-reference
-  warnings:
-    - tool-error
+  input: lib/
+  output: doc/
+  exclude:
+    - test/
+    - example/
+  showInheritedMembers: true
+  useCategories: true
+  header: ['my_header.md','my_header2.md']
+  assert:
+    - doc/image.png
+  dartdocResources:
+    - doc/images/my_image.png
+    - doc/image.png
