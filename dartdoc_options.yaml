@@ -1,24 +1,40 @@
 # dartdocOptions.yaml
 dartdoc:
+  # 用于配置TOPICS
   categories:
-    "Main Page":
+    # 代码中使用 {@category Main}，就可以关联markdown了
+    Main:
+      # 配置的主页
       markdown: doc/Main.md
-      name: Main
-    "Component":
+      # 外显的文案，如果不配也是可以的，会使用上边的Main
+      # 可以见源码：dartdoc_options.dart#CategoryDefinition
+      displayName: 主页
+    Component:
       markdown: doc/Components.md
-      name: Components
-  categoryOrder: ["Main Page", "Component"]
+      displayName: 组件
 
-  input: lib/
-  output: doc/
-  exclude:
-    - test/
-    - example/
-  showInheritedMembers: true
-  header: [ 'doc/my_header.md' ]
-  assert:
-    - doc/image.png
-  dartdocResources:
-    - doc/images/my_image.png
-    - doc/image.png
-  showUndocumentedCategories: true
+    Component_Button:
+      markdown: doc/Main.md
+      displayName: 组件-按钮
+  # 通过displayName，将categories进行排序
+  # 其实完全没必要使用displayName，直接使用：Main，Component就可以了
+  # 不然代码中是Main，外显是主页，挺晕的
+  # 这里更多是为了举例，使用了中英文，其实直接把Main改成主页，统一去吃displayName会更清晰
+  categoryOrder: [ "主页","组件" ]
+#  input: lib/component
+#  output: 'doc'
+  include:
+    - 'qing_component'
+  tools:
+    snippet:
+      command: ["bin/cache/dart-sdk/bin/dart", "pub", "global", "run", "snippets", "--output-directory=doc/snippets", "--type=snippet"]
+      description: "Creates sample code documentation output from embedded documentation samples."
+    sample:
+      command: ["bin/cache/dart-sdk/bin/dart", "pub", "global", "run", "snippets", "--output-directory=doc/snippets", "--type=sample"]
+      description: "Creates full application sample code documentation output from embedded documentation samples."
+    dartpad:
+      command: ["bin/cache/dart-sdk/bin/dart", "pub", "global", "run", "snippets", "--output-directory=doc/snippets", "--type=dartpad"]
+      description: "Creates full application sample code documentation output from embedded documentation samples and displays it in an embedded DartPad."
+
+
+

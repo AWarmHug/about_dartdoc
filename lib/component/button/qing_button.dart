@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-/// 通用dialog
+/// 通用button
 ///
 /// {@category Component}
-class QingDialog extends Dialog {
-  const QingDialog({Key? key}) : super(key: key);
+/// {@category Component_Button}
+class QingButton extends StatelessWidget {
+  const QingButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

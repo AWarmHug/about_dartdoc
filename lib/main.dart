@@ -8,6 +8,7 @@ void main() {
 
 /// App入口
 /// <img src="../../images/my_image.png" alt="Example image" width="200px" />
+/// {@category Main}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
