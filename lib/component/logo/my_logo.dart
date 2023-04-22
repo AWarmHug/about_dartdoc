@@ -14,16 +14,20 @@ import 'package:provider/provider.dart';
 ///  * [ImageIcon]、[AssetImage]、[NetworkImage] 和 [FadeInImage]，用于显示图像而不是图标。
 ///  * [CircularProgressIndicator]，显示一个圆形的加载指示器。
 ///
+/// 图片
+///
+///
 /// {@category Component}
 class MyLogo extends StatelessWidget {
-  const MyLogo({Key? key}) : super(key: key);
+  final String name;
+
+  const MyLogo({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Image.asset(name);
   }
 }
-
 
 /// An enumeration of database systems supported by drift. Only
 /// [SqlDialect.sqlite] is officially supported, all others are in an
@@ -43,7 +47,6 @@ enum SqlDialect {
 /// 监听Value
 ///
 /// 通过[Consumer]的使用，监听Value
-class ValueController extends Consumer{
+class ValueController extends Consumer {
   ValueController({super.key, required super.builder});
-
 }
